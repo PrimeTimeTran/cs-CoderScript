@@ -212,19 +212,46 @@ function reportSize() {
 
 window.onresize = reportSize;
 
-let listLength = 1
+let listLength = 1;
 
 document.getElementById("add-list-item").addEventListener("click", () => {
-  listLength++
+  listLength++;
   var para = document.createElement("li");
-  var node = document.createTextNode("This is a new li element number " + listLength);
+  var node = document.createTextNode(
+    "This is a new li element number " + listLength
+  );
   para.appendChild(node);
 
   var element = document.getElementById("add-list-item");
   element.appendChild(para);
 });
 
-document.getElementById('change-to-url').addEventListener('click', () => {
-  const url = window.location
-  document.getElementById('change-to-url').innerHTML = url
+document.getElementById("change-to-url").addEventListener("click", () => {
+  const url = window.location;
+  document.getElementById("change-to-url").innerHTML = url;
+});
+
+document.getElementById("change-coderscript").addEventListener("click", () => {
+  var i = 0;
+  var txt = "I know Coderscript! And also some Javascript...";
+  var speed = 50;
+
+  function typeWriter() {
+    if (i < txt.length) {
+      document.getElementById("change-coderscript").innerHTML += txt.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+  typeWriter()
+});
+
+document.getElementById('signin-button').addEventListener('click', () => {
+    document.getElementById('signin-form').style.display = "none";
+    document.getElementById('signout-form').style.display = "block";
+})
+
+document.getElementById('signout-button').addEventListener('click', () => {
+    document.getElementById('signin-form').style.display = "block";
+    document.getElementById('signout-form').style.display = "none";
 })
