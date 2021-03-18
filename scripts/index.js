@@ -1,6 +1,8 @@
 console.log("Hello JS!");
 
-document.getElementById("change-text").innerHTML = "I changed you!";
+setTimeout(() => {
+  document.getElementById("change-text").innerHTML = "Changed after 3 seconds!";
+}, 3000);
 
 let count = 0;
 
